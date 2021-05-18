@@ -36,10 +36,14 @@ public class Program {
 		}
 		
 		System.out.println("\n *** TEST 4 : Seller Insert ***");
-		
 		Seller newSeller = new Seller(null, "fred", "fred@gmail.com.", new Date(),4000.0, department );
 		sellerDao.insert(newSeller);
 		System.out.println("Inserido. New id = " + newSeller.getId());
+
+		System.out.println("\n *** TEST 4 : Seller update ***");
+		seller = sellerDao.findById(111);
+		sellerDao.update(seller);
+		System.out.println("Atualização completada.");
 		
 		
 	}
