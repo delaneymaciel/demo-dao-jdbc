@@ -2,6 +2,7 @@ package aplication;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Scanner;
 
 import model.dao.DaoFactory;
 import model.dao.SellerDao;
@@ -15,6 +16,8 @@ public class Program {
 		//System.out.println(obj);
 		
 	//	Seller seller = new Seller(21, "Bob", "bob@gmail.com", new Date(), 3000.0, obj);
+		
+		Scanner sc = new Scanner(System.in);
 		
 		System.out.println(" *** TEST 1 : Seller findById ***");
 		
@@ -40,10 +43,17 @@ public class Program {
 		sellerDao.insert(newSeller);
 		System.out.println("Inserido. New id = " + newSeller.getId());
 
-		System.out.println("\n *** TEST 4 : Seller update ***");
-		seller = sellerDao.findById(111);
+		System.out.println("\n *** TEST 5 : Seller update ***");
+		seller = sellerDao.findById(1);
 		sellerDao.update(seller);
 		System.out.println("Atualização completada.");
+		
+		System.out.println("\n *** TEST 6 : Seller delete ***");
+		
+		System.out.println("\n Informe o id");
+		int id = sc.nextInt();
+		sellerDao.deleteById(id);
+		System.out.println("Delete completed.");
 		
 		
 	}
